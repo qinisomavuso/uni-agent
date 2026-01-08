@@ -1,0 +1,69 @@
+{
+    "universities": [
+        {
+            "name": "University of Cape Town",
+            "base_url": "https://www.uct.ac.za",
+            "news_url": "https://uct.ac.za/staff/general-vacancies/",
+            "applications_url": "https://www.uct.ac.za/apply/applications/",
+            "selectors": {
+                "news_articles": ".news-item",
+                "news_title": ".news-title",
+                "news_date": ".news-date",
+                "news_content": ".news-content",
+                "application_deadlines": ".deadline-table tr"
+            }
+        },
+        {
+            "name": "University of the Witwatersrand",
+            "base_url": "https://www.wits.ac.za",
+            "news_url": "https://www.wits.ac.za/news/latest-news/",
+            "applications_url": "https://www.wits.ac.za/applications/",
+            "selectors": {
+                "news_articles": ".news-listing-item",
+                "news_title": "h3 a",
+                "news_date": ".date",
+                "news_content": ".excerpt",
+                "application_deadlines": ".table-deadlines tr"
+            }
+        },
+        {
+            "name": "Stellenbosch University",
+            "base_url": "https://www.sun.ac.za",
+            "news_url": "https://www.sun.ac.za/english/Pages/News.aspx",
+            "applications_url": "https://www.sun.ac.za/english/apply",
+            "selectors": {
+                "news_articles": ".news-item",
+                "news_title": "h2 a",
+                "news_date": ".date",
+                "news_content": ".description",
+                "application_deadlines": "table tbody tr"
+            }
+        },
+        {
+            "name": "University of Pretoria",
+            "base_url": "https://www.up.ac.za",
+            "news_url": "https://www.up.ac.za/news/",
+            "applications_url": "https://www.up.ac.za/apply",
+            "selectors": {
+                "news_articles": ".news-card",
+                "news_title": ".news-title",
+                "news_date": ".news-date",
+                "news_content": ".news-excerpt",
+                "application_deadlines": ".deadline-info"
+            }
+        },
+        {
+            "name": "University of Johannesburg",
+            "base_url": "https://www.uj.ac.za",
+            "news_url": "https://www.uj.ac.za/news/",
+            "applications_url": "https://www.uj.ac.za/apply/",
+            "selectors": {
+                "news_articles": ".news-item",
+                "news_title": "h3 a",
+                "news_date": ".post-date",
+                "news_content": ".post-excerpt",
+                "application_deadlines": ".application-dates"
+            }
+        }
+    ]
+}
