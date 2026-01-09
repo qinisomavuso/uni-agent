@@ -1,0 +1,94 @@
+{
+    "universities": [
+        {
+            "name": "University of Cape Town",
+            "base_url": "https://www.uct.ac.za",
+            "news_url": "https://www.uct.ac.za/news/",
+            "applications_url": "https://www.uct.ac.za/apply/applications/",
+            "vacancies_url": "https://www.uct.ac.za/vacancies/",
+            "selectors": {
+                "news_articles": "article",
+                "news_title": "h2, h3",
+                "news_date": ".date, time",
+                "news_content": "p",
+                "application_deadlines": ".deadline-table tr",
+                "vacancies": "article, .vacancy",
+                "vacancy_title": "h3, h2, a",
+                "vacancy_date": ".date, time",
+                "vacancy_desc": "p"
+            }
+        },
+        {
+            "name": "University of the Witwatersrand",
+            "base_url": "https://www.wits.ac.za",
+            "news_url": "https://www.wits.ac.za/news/latest-news/",
+            "applications_url": "https://www.wits.ac.za/applications/",
+            "vacancies_url": "https://www.wits.ac.za/vacancies/",
+            "selectors": {
+                "news_articles": "article, .news-listing-item",
+                "news_title": "h3, h2",
+                "news_date": ".date",
+                "news_content": ".excerpt, p",
+                "application_deadlines": ".table-deadlines tr",
+                "vacancies": "article, .vacancy",
+                "vacancy_title": "h3, h2, a",
+                "vacancy_date": ".date, time",
+                "vacancy_desc": "p"
+            }
+        },
+        {
+            "name": "Stellenbosch University",
+            "base_url": "https://www.sun.ac.za",
+            "news_url": "https://www.sun.ac.za/english/Pages/News.aspx",
+            "applications_url": "https://www.sun.ac.za/english/apply",
+            "vacancies_url": "https://www.sun.ac.za/english/vacancies",
+            "selectors": {
+                "news_articles": "article, .news-item",
+                "news_title": "h2 a",
+                "news_date": ".date",
+                "news_content": ".description, p",
+                "application_deadlines": "table tbody tr",
+                "vacancies": "article, .vacancy",
+                "vacancy_title": "h3, h2, a",
+                "vacancy_date": ".date, time",
+                "vacancy_desc": "p"
+            }
+        },
+        {
+            "name": "University of Pretoria",
+            "base_url": "https://www.up.ac.za",
+            "news_url": "https://www.up.ac.za/news/",
+            "applications_url": "https://www.up.ac.za/apply",
+            "vacancies_url": "https://www.up.ac.za/vacancies",
+            "selectors": {
+                "news_articles": "article, .news-card",
+                "news_title": ".news-title, h3, h2",
+                "news_date": ".news-date, .date",
+                "news_content": ".news-excerpt, p",
+                "application_deadlines": ".deadline-info",
+                "vacancies": "article, .vacancy",
+                "vacancy_title": "h3, h2, a",
+                "vacancy_date": ".date, time",
+                "vacancy_desc": "p"
+            }
+        },
+        {
+            "name": "University of Johannesburg",
+            "base_url": "https://www.uj.ac.za",
+            "news_url": "https://www.uj.ac.za/news/",
+            "applications_url": "https://www.uj.ac.za/apply/",
+            "vacancies_url": "https://www.uj.ac.za/vacancies",
+            "selectors": {
+                "news_articles": "article, .news-item",
+                "news_title": "h3, h2",
+                "news_date": ".post-date, .date",
+                "news_content": ".post-excerpt, p",
+                "application_deadlines": ".application-dates",
+                "vacancies": "article, .vacancy",
+                "vacancy_title": "h3, h2, a",
+                "vacancy_date": ".date, time",
+                "vacancy_desc": "p"
+            }
+        }
+    ]
+}

@@ -3,14 +3,19 @@
         {
             "name": "University of Cape Town",
             "base_url": "https://www.uct.ac.za",
-            "news_url": "https://uct.ac.za/staff/general-vacancies/",
+            "news_url": "https://www.uct.ac.za/news/",
             "applications_url": "https://www.uct.ac.za/apply/applications/",
+            "vacancies_url": "https://www.uct.ac.za/vacancies/",
             "selectors": {
-                "news_articles": ".news-item",
-                "news_title": ".news-title",
-                "news_date": ".news-date",
-                "news_content": ".news-content",
-                "application_deadlines": ".deadline-table tr"
+                "news_articles": "article",
+                "news_title": "h2, h3",
+                "news_date": ".date, time",
+                "news_content": "p",
+                "application_deadlines": ".deadline-table tr",
+                "vacancies": "article, .vacancy",
+                "vacancy_title": "h3, h2, a",
+                "vacancy_date": ".date, time",
+                "vacancy_desc": "p"
             }
         },
         {
@@ -18,12 +23,17 @@
             "base_url": "https://www.wits.ac.za",
             "news_url": "https://www.wits.ac.za/news/latest-news/",
             "applications_url": "https://www.wits.ac.za/applications/",
+            "vacancies_url": "https://www.wits.ac.za/vacancies/",
             "selectors": {
-                "news_articles": ".news-listing-item",
-                "news_title": "h3 a",
+                "news_articles": "article, .news-listing-item",
+                "news_title": "h3, h2",
                 "news_date": ".date",
-                "news_content": ".excerpt",
-                "application_deadlines": ".table-deadlines tr"
+                "news_content": ".excerpt, p",
+                "application_deadlines": ".table-deadlines tr",
+                "vacancies": "article, .vacancy",
+                "vacancy_title": "h3, h2, a",
+                "vacancy_date": ".date, time",
+                "vacancy_desc": "p"
             }
         },
         {
@@ -31,12 +41,17 @@
             "base_url": "https://www.sun.ac.za",
             "news_url": "https://www.sun.ac.za/english/Pages/News.aspx",
             "applications_url": "https://www.sun.ac.za/english/apply",
+            "vacancies_url": "https://www.sun.ac.za/english/vacancies",
             "selectors": {
-                "news_articles": ".news-item",
+                "news_articles": "article, .news-item",
                 "news_title": "h2 a",
                 "news_date": ".date",
-                "news_content": ".description",
-                "application_deadlines": "table tbody tr"
+                "news_content": ".description, p",
+                "application_deadlines": "table tbody tr",
+                "vacancies": "article, .vacancy",
+                "vacancy_title": "h3, h2, a",
+                "vacancy_date": ".date, time",
+                "vacancy_desc": "p"
             }
         },
         {
@@ -44,12 +59,17 @@
             "base_url": "https://www.up.ac.za",
             "news_url": "https://www.up.ac.za/news/",
             "applications_url": "https://www.up.ac.za/apply",
+            "vacancies_url": "https://www.up.ac.za/vacancies",
             "selectors": {
-                "news_articles": ".news-card",
-                "news_title": ".news-title",
-                "news_date": ".news-date",
-                "news_content": ".news-excerpt",
-                "application_deadlines": ".deadline-info"
+                "news_articles": "article, .news-card",
+                "news_title": ".news-title, h3, h2",
+                "news_date": ".news-date, .date",
+                "news_content": ".news-excerpt, p",
+                "application_deadlines": ".deadline-info",
+                "vacancies": "article, .vacancy",
+                "vacancy_title": "h3, h2, a",
+                "vacancy_date": ".date, time",
+                "vacancy_desc": "p"
             }
         },
         {
@@ -57,13 +77,145 @@
             "base_url": "https://www.uj.ac.za",
             "news_url": "https://www.uj.ac.za/news/",
             "applications_url": "https://www.uj.ac.za/apply/",
+            "vacancies_url": "https://www.uj.ac.za/vacancies",
             "selectors": {
-                "news_articles": ".news-item",
-                "news_title": "h3 a",
-                "news_date": ".post-date",
-                "news_content": ".post-excerpt",
-                "application_deadlines": ".application-dates"
+                "news_articles": "article, .news-item",
+                "news_title": "h3, h2",
+                "news_date": ".post-date, .date",
+                "news_content": ".post-excerpt, p",
+                "application_deadlines": ".application-dates",
+                "vacancies": "article, .vacancy",
+                "vacancy_title": "h3, h2, a",
+                "vacancy_date": ".date, time",
+                "vacancy_desc": "p"
             }
-        }
+        },
+                            {
+                    "name": "University of KwaZulu-Natal",
+                    "base_url": "https://www.ukzn.ac.za",
+                    "news_url": "https://www.ukzn.ac.za/news/",
+                    "applications_url": "https://www.ukzn.ac.za/apply/",
+                    "vacancies_url": "https://vacancies.ukzn.ac.za",
+                    "selectors": {
+                        "news_articles": "article",
+                        "news_title": "h2, h3",
+                        "news_date": "time, .date",
+                        "news_content": "p",
+                        "application_deadlines": "table tr",
+                        "vacancies": "article, .vacancy",
+                        "vacancy_title": "h2, h3, a",
+                        "vacancy_date": "time, .date",
+                        "vacancy_desc": "p"
+                    }
+                    },
+                    {
+                    "name": "University of Zululand",
+                    "base_url": "https://www.unizulu.ac.za",
+                    "news_url": "https://www.unizulu.ac.za/news/",
+                    "applications_url": "https://www.unizulu.ac.za/admissions/",
+                    "vacancies_url": "https://www.unizulu.ac.za/vacancies/",
+                    "selectors": {
+                        "news_articles": "article",
+                        "news_title": "h2, h3",
+                        "news_date": "time, .date",
+                        "news_content": "p",
+                        "application_deadlines": "table tr",
+                        "vacancies": "article, .vacancy",
+                        "vacancy_title": "h2, h3, a",
+                        "vacancy_date": "time, .date",
+                        "vacancy_desc": "p"
+                    }
+                    },
+                    {
+                    "name": "University of the Free State",
+                    "base_url": "https://www.ufs.ac.za",
+                    "news_url": "https://www.ufs.ac.za/templates/news",
+                    "applications_url": "https://www.ufs.ac.za/prospective-students",
+                    "vacancies_url": "https://ufs.hua.hrsmart.com",
+                    "selectors": {
+                        "news_articles": "article",
+                        "news_title": "h2, h3",
+                        "news_date": "time, .date",
+                        "news_content": "p",
+                        "application_deadlines": "table tr",
+                        "vacancies": "article, .vacancy",
+                        "vacancy_title": "h2, h3, a",
+                        "vacancy_date": "time, .date",
+                        "vacancy_desc": "p"
+                    }
+                    },
+                    {
+                    "name": "North-West University",
+                    "base_url": "https://www.nwu.ac.za",
+                    "news_url": "https://www.nwu.ac.za/latest-news",
+                    "applications_url": "https://studies.nwu.ac.za",
+                    "vacancies_url": "https://nwu.ci.hrsmart.com",
+                    "selectors": {
+                        "news_articles": "article",
+                        "news_title": "h2, h3",
+                        "news_date": "time, .date",
+                        "news_content": "p",
+                        "application_deadlines": "table tr",
+                        "vacancies": "article, .vacancy",
+                        "vacancy_title": "h2, h3, a",
+                        "vacancy_date": "time, .date",
+                        "vacancy_desc": "p"
+                    }
+                    },
+                    {
+                    "name": "Nelson Mandela University",
+                    "base_url": "https://www.mandela.ac.za",
+                    "news_url": "https://www.mandela.ac.za/News-and-Events",
+                    "applications_url": "https://www.mandela.ac.za/Study-at-Mandela",
+                    "vacancies_url": "https://mandela.mcidirecthire.com",
+                    "selectors": {
+                        "news_articles": "article",
+                        "news_title": "h2, h3",
+                        "news_date": "time, .date",
+                        "news_content": "p",
+                        "application_deadlines": "table tr",
+                        "vacancies": "article, .vacancy",
+                        "vacancy_title": "h2, h3, a",
+                        "vacancy_date": "time, .date",
+                        "vacancy_desc": "p"
+                    }
+                    },
+                    {
+                    "name": "Sefako Makgatho Health Sciences University",
+                    "base_url": "https://www.smu.ac.za",
+                    "news_url": "https://www.smu.ac.za/news/",
+                    "applications_url": "https://www.smu.ac.za/study-at-smu/",
+                    "vacancies_url": "https://www.smu.ac.za/vacancies/",
+                    "selectors": {
+                        "news_articles": "article",
+                        "news_title": "h2, h3",
+                        "news_date": "time, .date",
+                        "news_content": "p",
+                        "application_deadlines": "table tr",
+                        "vacancies": "article, .vacancy",
+                        "vacancy_title": "h2, h3, a",
+                        "vacancy_date": "time, .date",
+                        "vacancy_desc": "p"
+                    }
+                    },
+                    {
+                    "name": "Rhodes University",
+                    "base_url": "https://www.ru.ac.za",
+                    "news_url": "https://www.ru.ac.za/latestnews/",
+                    "applications_url": "https://www.ru.ac.za/studyatru/",
+                    "vacancies_url": "https://www.ru.ac.za/humanresources/vacancies/",
+                    "selectors": {
+                        "news_articles": "article",
+                        "news_title": "h2, h3",
+                        "news_date": "time, .date",
+                        "news_content": "p",
+                        "application_deadlines": "table tr",
+                        "vacancies": "article, .vacancy",
+                        "vacancy_title": "h2, h3, a",
+                        "vacancy_date": "time, .date",
+                        "vacancy_desc": "p"
+                    }
+                    }
+
     ]
 }

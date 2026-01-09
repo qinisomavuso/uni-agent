@@ -1,7 +1,7 @@
 import os
 from dotenv import load_dotenv
 from dataclasses import dataclass
-from typing import List, Dict
+from typing import List, Dict, Optional
 import json
 
 load_dotenv()
@@ -13,6 +13,7 @@ class UniversityConfig:
     news_url: str
     applications_url: str
     selectors: Dict  # CSS selectors for scraping
+    vacancies_url: Optional[str] = None
     
 class Config:
     # Database
@@ -29,7 +30,7 @@ class Config:
     
     # Universities to monitor (we'll populate this)
     UNIVERSITIES: List[UniversityConfig] = []
-    
+
 import json
 
 def load_universities_config():

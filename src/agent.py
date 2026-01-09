@@ -23,6 +23,7 @@ class UniversityAgent:
         
         all_new_articles = []
         all_new_deadlines = []
+        all_new_vacancies = []
         
         for uni_config in self.universities:
             try:
@@ -38,8 +39,14 @@ class UniversityAgent:
                 new_deadlines = self.db_manager.save_deadlines(deadlines)
                 all_new_deadlines.extend(new_deadlines)
                 
+                # Scrape vacancies
+                vacancies = self.scraper.scrape_vacancies(uni_config)
+                new_vacancies = self.db_manager.save_vacancies(vacancies)
+                all_new_vacancies.extend(new_vacancies)
+                
                 logger.info(f"  Found {len(articles)} articles ({len(new_articles)} new)")
                 logger.info(f"  Found {len(deadlines)} deadlines ({len(new_deadlines)} new)")
+                logger.info(f"  Found {len(vacancies)} vacancies ({len(new_vacancies)} new)")
                 
                 # Small delay between universities
                 time.sleep(2)

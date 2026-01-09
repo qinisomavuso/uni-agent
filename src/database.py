@@ -35,6 +35,19 @@ class ApplicationDeadline(Base):
     scraped_at = Column(DateTime)
     is_new = Column(Integer, default=1)
 
+class Vacancy(Base):
+    __tablename__ = 'vacancies'
+    
+    id = Column(Integer, primary_key=True)
+    vacancy_hash = Column(String(64), unique=True, index=True)
+    university = Column(String(100))
+    title = Column(String(500))
+    url = Column(String(1000))
+    date = Column(String(100))
+    description = Column(Text)
+    scraped_at = Column(DateTime)
+    is_new = Column(Integer, default=1)  # 1 = new, 0 = seen
+
 class DatabaseManager:
     def __init__(self, db_url: str = "sqlite:///data/university_data.db"):
         self.engine = create_engine(db_url)
@@ -95,10 +108,51 @@ class DatabaseManager:
         session.close()
         return new_deadlines
     
+    def save_vacancies(self, vacancies: list) -> list:
+        """Save job vacancies, return only new ones"""
+        session = self.Session()
+        new_vacancies = []
+        
+        for vacancy in vacancies:
+            vacancy_hash = hashlib.sha256(
+                f"{vacancy['title']}_{vacancy['university']}".encode('utf-8')
+            ).hexdigest()
+            
+            existing = session.query(Vacancy).filter_by(vacancy_hash=vacancy_hash).first()
+            
+            if not existing:
+                db_vacancy = Vacancy(
+                    vacancy_hash=vacancy_hash,
+                    university=vacancy['university'],
+                    title=vacancy['title'],
+                    url=vacancy['url'],
+                    date=vacancy['date'],
+                    description=vacancy['description'],
+                    scraped_at=datetime.strptime(vacancy['scraped_at'], '%Y-%m-%d %H:%M:%S')
+                )
+                session.add(db_vacancy)
+                new_vacancies.append(vacancy)
+        
+        session.commit()
+        session.close()
+        return new_vacancies
+    
     def get_recent_news(self, limit: int = 20, university: str = None):
         """Get recent news articles"""
         session = self.Session()
         query = session.query(NewsArticle).order_by(NewsArticle.scraped_at.desc())
+        
+        if university:
+            query = query.filter_by(university=university)
+        
+        results = query.limit(limit).all()
+        session.close()
+        return results
+    
+    def get_recent_vacancies(self, limit: int = 20, university: str = None):
+        """Get recent job vacancies"""
+        session = self.Session()
+        query = session.query(Vacancy).order_by(Vacancy.scraped_at.desc())
         
         if university:
             query = query.filter_by(university=university)

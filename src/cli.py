@@ -1,6 +1,7 @@
 import argparse
 import sys
 from tabulate import tabulate
+import json
 from src.config import load_universities_config, Config
 from src.scraper import UniversityScraper
 from src.database import DatabaseManager
@@ -44,9 +45,9 @@ def setup_cli():
     )
     
     parser.add_argument(
-        "--stats",
+        "--update-universities",
         action="store_true",
-        help="Show statistics"
+        help="Update the list of universities from Wikipedia"
     )
     
     return parser.parse_args()
@@ -75,6 +76,33 @@ def show_recent_news(db_manager, limit=10, university=None):
     if len(articles) == limit:
         print(f"\nShowing {limit} most recent articles. Use --show-news N for more.")
 
+def show_recent_vacancies(db_manager, limit=10, university=None):
+    """Display recent job vacancies with links"""
+    vacancies = db_manager.get_recent_vacancies(limit, university)
+    
+    if not vacancies:
+        print("No vacancies found.")
+        return
+    
+    print("\n" + "="*100)
+    print("🏢 AVAILABLE UNIVERSITY VACANCIES")
+    print("="*100 + "\n")
+    
+    for idx, vacancy in enumerate(vacancies, 1):
+        print(f"{idx}. {vacancy.university}")
+        print(f"   📌 Title: {vacancy.title}")
+        if vacancy.date:
+            print(f"   📅 Date: {vacancy.date}")
+        if vacancy.description:
+            desc = vacancy.description[:200] + "..." if len(vacancy.description) > 200 else vacancy.description
+            print(f"   📝 Description: {desc}")
+        if vacancy.url:
+            print(f"   🔗 Apply Here: {vacancy.url}")
+        print()
+    
+    if len(vacancies) == limit:
+        print(f"Showing {limit} most recent vacancies. Use --show-vacancies N for more.")
+
 def main_cli():
     """CLI entry point"""
     args = setup_cli()
@@ -99,6 +127,19 @@ def main_cli():
     elif args.show_news:
         show_recent_news(db_manager, args.show_news, args.university)
     
+    elif args.show_vacancies:
+        show_recent_vacancies(db_manager, args.show_vacancies, args.university)
+    
+    elif args.update_universities:
+        print("Updating universities list from Wikipedia...")
+        scraper = UniversityScraper(Config)
+        universities = scraper.get_south_african_universities()
+        # Save to json
+        import json
+        with open('data/universities.json', 'w') as f:
+            json.dump({'universities': universities}, f, indent=4)
+        print(f"Updated {len(universities)} universities.")
+    
     elif args.show_deadlines:
         # Similar function for deadlines
         pass
@@ -113,6 +154,8 @@ def main_cli():
         print("  --run           : Run scraping once")
         print("  --daemon        : Run continuously")
         print("  --show-news N   : Show N recent articles")
+        print("  --show-vacancies N : Show N recent vacancies with application links")
+        print("  --update-universities : Update universities list from Wikipedia")
         print("  --university X  : Filter by university")
         print("  --stats         : Show statistics")
 
